@@ -1,63 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
-            animation: raveBackground 6s infinite alternate;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
+      animation: raveBackground 6s infinite alternate;
+      overflow: hidden;
+    }
 
-        h1 {
-            font-size: 3em;
-            color: #fff;
-            text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #ffff00;
-            animation: bounce 2s infinite;
-        }
+    h1 {
+      font-size: 3em;
+      color: #fff;
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #ffff00;
+    }
 
-        nav a {
-            font-size: 1.5em;
-            color: #00ff00;
-            text-decoration: none;
-            padding: 12px 24px;
-            border: 3px dashed #ff00ff;
-            border-radius: 12px;
-            background: rgba(0,0,0,0.4);
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
+    h1 span {
+      display: inline-block;
+      animation: bounce 2s infinite;
+    }
+    h1 span:nth-child(1) { animation-delay: 0s; }
+    h1 span:nth-child(2) { animation-delay: 0.2s; }
+    h1 span:nth-child(3) { animation-delay: 0.4s; }
+    h1 span:nth-child(4) { animation-delay: 0.6s; }
+    h1 span:nth-child(5) { animation-delay: 0.8s; }
+    h1 span:nth-child(6) { animation-delay: 1s; }
 
-        nav a:hover {
-            transform: rotate(8deg) scale(1.2);
-            background: #ff00ff;
-            color: #fff;
-        }
+    nav a {
+      font-size: 1.5em;
+      color: #00ff00;
+      text-decoration: none;
+      padding: 12px 24px;
+      border: 3px dashed #ff00ff;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-25px); }
-        }
+    nav a:hover {
+      transform: rotate(8deg) scale(1.2);
+      background: #ff00ff;
+      color: #fff;
+    }
 
-        @keyframes raveBackground {
-            0% { background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00); }
-            50% { background: linear-gradient(135deg, #00ff00, #ff6600, #ff00ff); }
-            100% { background: linear-gradient(135deg, #00ffff, #ff0000, #00ff00); }
-        }
-    </style>
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+    }
+
+    @keyframes raveBackground {
+      0% { background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00); }
+      50% { background: linear-gradient(135deg, #00ff00, #ff6600, #ff00ff); }
+      100% { background: linear-gradient(135deg, #00ffff, #ff0000, #00ff00); }
+    }
+
+    /* Floating emojis */
+    .emoji {
+      position: absolute;
+      bottom: -60px;
+      opacity: 0.6;
+      font-size: 2.5em;
+      animation: floatUp linear infinite, driftSide ease-in-out infinite alternate;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.6; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
+
+    @keyframes driftSide {
+      0%   { transform: translateX(0); }
+      25%  { transform: translateX(30px); }
+      50%  { transform: translateX(-20px); }
+      75%  { transform: translateX(40px); }
+      100% { transform: translateX(-10px); }
+    }
+
+    /* Randomize each emoji’s timing */
+    .emoji1 { left: 10%; animation-duration: 14s, 7s; animation-delay: 0s, 0s; }
+    .emoji2 { left: 30%; animation-duration: 16s, 8s; animation-delay: 2s, 1s; }
+    .emoji3 { left: 50%; animation-duration: 18s, 9s; animation-delay: 4s, 2s; }
+    .emoji4 { left: 70%; animation-duration: 20s, 10s; animation-delay: 6s, 3s; }
+    .emoji5 { left: 85%; animation-duration: 22s, 11s; animation-delay: 8s, 4s; }
+  </style>
 </head>
 <body>
-    <h1>Nothing beats a jet-2 holiday! 🏖️🍹✈️</h1>
-    <nav>
-        <a href="contact.html">Contact us NOW! 🤪</a>
-    </nav>
+  <h1>
+    <span>Nothing</span>
+    <span>beats</span>
+    <span>a</span>
+    <span>jet-2</span>
+    <span>holiday!</span>
+    <span>🏖️🍹✈️</span>
+  </h1>
+  <nav>
+    <a href="contact.html">Contact us NOW! 🤪</a>
+  </nav>
+
+  <!-- Floating emojis -->
+  <div class="emoji emoji1">✈️</div>
+  <div class="emoji emoji2">🍹</div>
+  <div class="emoji emoji3">💸</div>
+  <div class="emoji emoji4">🌴</div>
+  <div class="emoji emoji5">😎</div>
 </body>
 </html>
