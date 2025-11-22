@@ -3,10 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Holiday Savings Madness</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
+            animation: raveBackground 6s infinite alternate;
+        }
+
+        h1, h2 {
+            color: #fff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #ffff00;
+            margin: 10px;
+        }
+
+        h1 {
+            font-size: 3em;
+            animation: bounce 2s infinite;
+        }
+
+        h2 {
+            font-size: 2em;
+            animation: wiggle 3s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-25px); }
+        }
+
+        @keyframes wiggle {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            50% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes raveBackground {
+            0% { background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00); }
+            50% { background: linear-gradient(135deg, #00ff00, #ff6600, #ff00ff); }
+            100% { background: linear-gradient(135deg, #00ffff, #ff0000, #00ff00); }
+        }
+    </style>
 </head>
 <body>
-    <h1>And right now, you can save 50 pounds per person!!</h1>
-    <h2>Thats 200 pounds for a family of four!!!</h2>
+    <h1>And right now, you can save 50 pounds per person!! 💸💃</h1>
+    <h2>That’s 200 pounds for a family of four!!! 🏖️🍹✈️</h2>
 </body>
 </html>

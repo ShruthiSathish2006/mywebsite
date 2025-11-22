@@ -3,9 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jet-2 Holiday Fun</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
+            animation: raveBackground 6s infinite alternate;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #ffff00;
+            animation: bounce 2s infinite;
+        }
+
+        nav a {
+            font-size: 1.5em;
+            color: #00ff00;
+            text-decoration: none;
+            padding: 12px 24px;
+            border: 3px dashed #ff00ff;
+            border-radius: 12px;
+            background: rgba(0,0,0,0.4);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        nav a:hover {
+            transform: rotate(8deg) scale(1.2);
+            background: #ff00ff;
+            color: #fff;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-25px); }
+        }
+
+        @keyframes raveBackground {
+            0% { background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00); }
+            50% { background: linear-gradient(135deg, #00ff00, #ff6600, #ff00ff); }
+            100% { background: linear-gradient(135deg, #00ffff, #ff0000, #00ff00); }
+        }
+    </style>
 </head>
 <body>
-    <h1>Nothing beats a jet-2 holiday!</h1>
+    <h1>Nothing beats a jet-2 holiday! 🏖️🍹✈️</h1>
+    <nav>
+        <a href="contact.html">Book your neon adventure now! 🤪</a>
+    </nav>
 </body>
 </html>
