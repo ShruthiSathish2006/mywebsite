@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us</title>
   <style>
     body {
-      margin: 0;
+      background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
       height: 100vh;
+      margin: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(-45deg, #ff00ff, #00ffff, #ffff00, #ff6600);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
+      text-align: center;
+      animation: disco 5s infinite alternate;
       overflow: hidden;
     }
 
@@ -56,80 +55,44 @@
       50% { transform: translateY(-20px); }
     }
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    @keyframes disco {
+      0% { background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00); }
+      25% { background: linear-gradient(135deg, #00ff00, #ff6600, #ff00ff); }
+      50% { background: linear-gradient(135deg, #00ffff, #ff0000, #00ff00); }
+      75% { background: linear-gradient(135deg, #ff6600, #ffff00, #00ffff); }
+      100% { background: linear-gradient(135deg, #ff0000, #00ff00, #ff00ff); }
     }
 
-    /* Emoji wrappers drift horizontally (X) */
+    /* Emoji wrappers drift horizontally */
     .emoji {
       position: absolute;
-      bottom: -60px; /* start just below screen */
-      will-change: transform;
+      bottom: -60px;
+      opacity: 0.6; /* reduced opacity */
     }
-
-    /* Inner span floats up (Y) and rotates */
     .emoji > span {
       display: inline-block;
       font-size: 2.5em;
       animation: floatUp 12s linear infinite;
-      will-change: transform, opacity;
     }
 
     @keyframes floatUp {
       0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
-      10%  { opacity: 1; }
+      10%  { opacity: 0.6; }
       100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
     }
 
-    /* Different drift paths so movement looks random */
-    @keyframes drift1 {
-      0%   { transform: translateX(0); }
-      25%  { transform: translateX(25px); }
-      50%  { transform: translateX(-15px); }
-      75%  { transform: translateX(35px); }
-      100% { transform: translateX(-20px); }
-    }
-    @keyframes drift2 {
-      0%   { transform: translateX(0); }
-      30%  { transform: translateX(-30px); }
-      60%  { transform: translateX(20px); }
-      100% { transform: translateX(-10px); }
-    }
-    @keyframes drift3 {
-      0%   { transform: translateX(0); }
-      20%  { transform: translateX(15px); }
-      50%  { transform: translateX(-35px); }
-      80%  { transform: translateX(25px); }
-      100% { transform: translateX(-5px); }
-    }
-    @keyframes drift4 {
-      0%   { transform: translateX(0); }
-      40%  { transform: translateX(-20px); }
-      70%  { transform: translateX(40px); }
-      100% { transform: translateX(-15px); }
-    }
-    @keyframes drift5 {
-      0%   { transform: translateX(0); }
-      35%  { transform: translateX(30px); }
-      65%  { transform: translateX(-25px); }
-      100% { transform: translateX(10px); }
-    }
+    /* Random drift animations */
+    @keyframes drift1 { 0%{transform:translateX(0);}50%{transform:translateX(30px);}100%{transform:translateX(-20px);} }
+    @keyframes drift2 { 0%{transform:translateX(0);}50%{transform:translateX(-40px);}100%{transform:translateX(25px);} }
+    @keyframes drift3 { 0%{transform:translateX(0);}50%{transform:translateX(20px);}100%{transform:translateX(-35px);} }
+    @keyframes drift4 { 0%{transform:translateX(0);}50%{transform:translateX(-25px);}100%{transform:translateX(40px);} }
+    @keyframes drift5 { 0%{transform:translateX(0);}50%{transform:translateX(15px);}100%{transform:translateX(-10px);} }
 
-    /* Assign random-looking drift + varied timings */
     .emoji1 { left: 10%; animation: drift1 7s ease-in-out infinite alternate; }
     .emoji2 { left: 28%; animation: drift2 8s ease-in-out infinite alternate; }
     .emoji3 { left: 50%; animation: drift3 9s ease-in-out infinite alternate; }
     .emoji4 { left: 68%; animation: drift4 10s ease-in-out infinite alternate; }
     .emoji5 { left: 85%; animation: drift5 11s ease-in-out infinite alternate; }
-
-    /* Vary float durations and delays to de-sync motion */
-    .emoji1 > span { animation-duration: 14s; animation-delay: 0s; }
-    .emoji2 > span { animation-duration: 16s; animation-delay: 1s; }
-    .emoji3 > span { animation-duration: 18s; animation-delay: 2s; }
-    .emoji4 > span { animation-duration: 20s; animation-delay: 3s; }
-    .emoji5 > span { animation-duration: 22s; animation-delay: 4s; }
   </style>
 </head>
 <body>
@@ -144,7 +107,7 @@
     <a href="gallery.html">Check out our Gallery 🎨✨</a>
   </nav>
 
-  <!-- Emoji wrappers (drift) + inner spans (float/rotate) -->
+  <!-- Randomly drifting emojis -->
   <div class="emoji emoji1"><span>✈️</span></div>
   <div class="emoji emoji2"><span>🍹</span></div>
   <div class="emoji emoji3"><span>💸</span></div>
