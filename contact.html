@@ -1,61 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holiday Savings Madness</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
-            animation: raveBackground 6s infinite alternate;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
+      animation: raveBackground 6s infinite alternate;
+      overflow: hidden; /* keep emojis inside */
+    }
 
-        h1, h2 {
-            color: #fff;
-            text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #ffff00;
-            margin: 10px;
-        }
+    h1, h2 {
+      color: #fff;
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #ffff00;
+      margin: 10px;
+    }
 
-        h1 {
-            font-size: 3em;
-            animation: bounce 2s infinite;
-        }
+    h1 {
+      font-size: 3em;
+      animation: bounce 2s infinite;
+    }
 
-        h2 {
-            font-size: 2em;
-            animation: wiggle 3s infinite;
-        }
+    h2 {
+      font-size: 2em;
+      animation: wiggle 3s infinite;
+    }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-25px); }
-        }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+    }
 
-        @keyframes wiggle {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(5deg); }
-            50% { transform: rotate(-5deg); }
-            75% { transform: rotate(5deg); }
-            100% { transform: rotate(0deg); }
-        }
+    @keyframes wiggle {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(-5deg); }
+      75% { transform: rotate(5deg); }
+      100% { transform: rotate(0deg); }
+    }
 
-        @keyframes raveBackground {
-            0% { background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00); }
-            50% { background: linear-gradient(135deg, #00ff00, #ff6600, #ff00ff); }
-            100% { background: linear-gradient(135deg, #00ffff, #ff0000, #00ff00); }
-        }
-    </style>
+    @keyframes raveBackground {
+      0% { background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00); }
+      50% { background: linear-gradient(135deg, #00ff00, #ff6600, #ff00ff); }
+      100% { background: linear-gradient(135deg, #00ffff, #ff0000, #00ff00); }
+    }
+
+    /* Floating emojis */
+    .emoji {
+      position: absolute;
+      font-size: 2.5em;
+      animation: floatEmojis 12s linear infinite;
+    }
+
+    @keyframes floatEmojis {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
 </head>
 <body>
-    <h1>And right now, you can save 50 pounds per person!! 💸💃</h1>
-    <h2>That’s 200 pounds for a family of four!!! 🏖️🍹✈️</h2>
+  <h1>And right now, you can save 50 pounds per person!! 💸💃</h1>
+  <h2>That's 200 pounds off for a family of four!!! 🏖️🍹✈️</h2>
+
+  <!-- Floating emojis -->
+  <div class="emoji" style="left:10%;">✈️</div>
+  <div class="emoji" style="left:30%; animation-delay: 2s;">🍹</div>
+  <div class="emoji" style="left:50%; animation-delay: 4s;">💸</div>
+  <div class="emoji" style="left:70%; animation-delay: 6s;">🌴</div>
+  <div class="emoji" style="left:85%; animation-delay: 8s;">😎</div>
 </body>
 </html>
