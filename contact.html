@@ -14,9 +14,10 @@
       align-items: center;
       text-align: center;
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
-      animation: raveBackground 6s infinite alternate;
-      overflow: hidden; /* keep emojis inside */
+      background: linear-gradient(-45deg, #ff00ff, #00ffff, #ffff00, #ff6600);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      overflow: hidden;
     }
 
     h1, h2 {
@@ -48,18 +49,18 @@
       100% { transform: rotate(0deg); }
     }
 
-    @keyframes raveBackground {
-      0% { background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00); }
-      50% { background: linear-gradient(135deg, #00ff00, #ff6600, #ff00ff); }
-      100% { background: linear-gradient(135deg, #00ffff, #ff0000, #00ff00); }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    /* Floating + drifting emojis */
+    /* Floating emojis */
     .emoji {
       position: absolute;
       font-size: 2.5em;
-      bottom: -50px; /* start below screen */
-      animation: floatUp 12s linear infinite, driftSide 6s ease-in-out infinite alternate;
+      bottom: -50px;
+      animation: floatUp 12s linear infinite;
     }
 
     @keyframes floatUp {
@@ -68,22 +69,54 @@
       100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
     }
 
-    @keyframes driftSide {
-      0% { left: 10%; }
-      50% { left: 15%; }
-      100% { left: 20%; }
+    /* Random drift animations */
+    @keyframes drift1 {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(30px); }
+      100% { transform: translateX(-20px); }
     }
+
+    @keyframes drift2 {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(-40px); }
+      100% { transform: translateX(25px); }
+    }
+
+    @keyframes drift3 {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(20px); }
+      100% { transform: translateX(-35px); }
+    }
+
+    @keyframes drift4 {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(-25px); }
+      100% { transform: translateX(40px); }
+    }
+
+    @keyframes drift5 {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(15px); }
+      100% { transform: translateX(-10px); }
+    }
+
+    /* Assign different drift animations */
+    .emoji1 { animation: floatUp 12s linear infinite, drift1 6s ease-in-out infinite alternate; }
+    .emoji2 { animation: floatUp 14s linear infinite, drift2 7s ease-in-out infinite alternate; }
+    .emoji3 { animation: floatUp 16s linear infinite, drift3 8s ease-in-out infinite alternate; }
+    .emoji4 { animation: floatUp 18s linear infinite, drift4 9s ease-in-out infinite alternate; }
+    .emoji5 { animation: floatUp 20s linear infinite, drift5 10s ease-in-out infinite alternate; }
   </style>
 </head>
 <body>
   <h1>And right now, you can save 50 pounds per person!! 💸💃</h1>
-  <h2>That's 200 pounds off for a family of four!!! 🏖️🍹✈️</h2>
+  <h2>That’s 200 pounds for a family of four!!! 🏖️🍹✈️</h2>
 
-  <!-- Floating emojis with staggered delays -->
-  <div class="emoji" style="left:10%; animation-delay:0s;">✈️</div>
-  <div class="emoji" style="left:30%; animation-delay:2s;">🍹</div>
-  <div class="emoji" style="left:50%; animation-delay:4s;">💸</div>
-  <div class="emoji" style="left:70%; animation-delay:6s;">🌴</div>
-  <div class="emoji" style="left:85%; animation-delay:8s;">😎</div>
+  <!-- Floating emojis with random drift -->
+  <div class="emoji emoji1" style="left:10%;">✈️</div>
+  <div class="emoji emoji2" style="left:30%;">🍹</div>
+  <div class="emoji emoji3" style="left:50%;">💸</div>
+  <div class="emoji emoji4" style="left:70%;">🌴</div>
+  <div class="emoji emoji5" style="left:85%;">😎</div>
 </body>
 </html>
