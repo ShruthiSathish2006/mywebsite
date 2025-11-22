@@ -63,16 +63,13 @@
       100% { background: linear-gradient(135deg, #ff0000, #00ff00, #ff00ff); }
     }
 
-    /* Emoji wrappers drift horizontally */
+    /* Emoji floating */
     .emoji {
       position: absolute;
       bottom: -60px;
-      opacity: 0.6; /* reduced opacity */
-    }
-    .emoji > span {
-      display: inline-block;
+      opacity: 0.6;
       font-size: 2.5em;
-      animation: floatUp 12s linear infinite;
+      animation: floatUp 12s linear infinite, driftSide 6s ease-in-out infinite alternate;
     }
 
     @keyframes floatUp {
@@ -81,18 +78,20 @@
       100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
     }
 
-    /* Random drift animations */
-    @keyframes drift1 { 0%{transform:translateX(0);}50%{transform:translateX(30px);}100%{transform:translateX(-20px);} }
-    @keyframes drift2 { 0%{transform:translateX(0);}50%{transform:translateX(-40px);}100%{transform:translateX(25px);} }
-    @keyframes drift3 { 0%{transform:translateX(0);}50%{transform:translateX(20px);}100%{transform:translateX(-35px);} }
-    @keyframes drift4 { 0%{transform:translateX(0);}50%{transform:translateX(-25px);}100%{transform:translateX(40px);} }
-    @keyframes drift5 { 0%{transform:translateX(0);}50%{transform:translateX(15px);}100%{transform:translateX(-10px);} }
+    @keyframes driftSide {
+      0%   { transform: translateX(0); }
+      25%  { transform: translateX(30px); }
+      50%  { transform: translateX(-20px); }
+      75%  { transform: translateX(40px); }
+      100% { transform: translateX(-10px); }
+    }
 
-    .emoji1 { left: 10%; animation: drift1 7s ease-in-out infinite alternate; }
-    .emoji2 { left: 28%; animation: drift2 8s ease-in-out infinite alternate; }
-    .emoji3 { left: 50%; animation: drift3 9s ease-in-out infinite alternate; }
-    .emoji4 { left: 68%; animation: drift4 10s ease-in-out infinite alternate; }
-    .emoji5 { left: 85%; animation: drift5 11s ease-in-out infinite alternate; }
+    /* Randomize each emoji’s timing so they look unpredictable */
+    .emoji1 { left: 10%; animation-duration: 14s, 7s; animation-delay: 0s, 0s; }
+    .emoji2 { left: 28%; animation-duration: 16s, 8s; animation-delay: 2s, 1s; }
+    .emoji3 { left: 50%; animation-duration: 18s, 9s; animation-delay: 4s, 2s; }
+    .emoji4 { left: 68%; animation-duration: 20s, 10s; animation-delay: 6s, 3s; }
+    .emoji5 { left: 85%; animation-duration: 22s, 11s; animation-delay: 8s, 4s; }
   </style>
 </head>
 <body>
@@ -107,11 +106,11 @@
     <a href="gallery.html">Check out our Gallery 🎨✨</a>
   </nav>
 
-  <!-- Randomly drifting emojis -->
-  <div class="emoji emoji1"><span>✈️</span></div>
-  <div class="emoji emoji2"><span>🍹</span></div>
-  <div class="emoji emoji3"><span>💸</span></div>
-  <div class="emoji emoji4"><span>🌴</span></div>
-  <div class="emoji emoji5"><span>😎</span></div>
+  <!-- Random floating emojis -->
+  <div class="emoji emoji1">✈️</div>
+  <div class="emoji emoji2">🍹</div>
+  <div class="emoji emoji3">💸</div>
+  <div class="emoji emoji4">🌴</div>
+  <div class="emoji emoji5">😎</div>
 </body>
 </html>
