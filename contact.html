@@ -14,9 +14,8 @@
       align-items: center;
       text-align: center;
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(-45deg, #ff00ff, #00ffff, #ffff00, #ff6600);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
+      background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
+      animation: disco 5s infinite alternate;
       overflow: hidden;
     }
 
@@ -49,74 +48,63 @@
       100% { transform: rotate(0deg); }
     }
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    @keyframes disco {
+      0%   { background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00); }
+      25%  { background: linear-gradient(135deg, #00ff00, #ff6600, #ff00ff); }
+      50%  { background: linear-gradient(135deg, #00ffff, #ff0000, #00ff00); }
+      75%  { background: linear-gradient(135deg, #ff6600, #ffff00, #00ffff); }
+      100% { background: linear-gradient(135deg, #ff0000, #00ff00, #ff00ff); }
     }
 
-    /* Floating emojis */
+    /* Emoji wrapper drifts sideways */
     .emoji {
       position: absolute;
+      bottom: -60px;
+      opacity: 0.7;
+      animation: drift 6s ease-in-out infinite alternate;
+    }
+
+    /* Inner span floats upward */
+    .emoji span {
+      display: inline-block;
       font-size: 2.5em;
-      bottom: -50px;
-      animation: floatUp 12s linear infinite;
+      animation: floatUp 14s linear infinite;
     }
 
     @keyframes floatUp {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-      10% { opacity: 1; }
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.7; }
       100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
     }
 
-    /* Random drift animations */
-    @keyframes drift1 {
-      0% { transform: translateX(0); }
-      50% { transform: translateX(30px); }
-      100% { transform: translateX(-20px); }
+    @keyframes drift {
+      0%   { transform: translateX(0); }
+      50%  { transform: translateX(40px); }
+      100% { transform: translateX(-30px); }
     }
 
-    @keyframes drift2 {
-      0% { transform: translateX(0); }
-      50% { transform: translateX(-40px); }
-      100% { transform: translateX(25px); }
-    }
-
-    @keyframes drift3 {
-      0% { transform: translateX(0); }
-      50% { transform: translateX(20px); }
-      100% { transform: translateX(-35px); }
-    }
-
-    @keyframes drift4 {
-      0% { transform: translateX(0); }
-      50% { transform: translateX(-25px); }
-      100% { transform: translateX(40px); }
-    }
-
-    @keyframes drift5 {
-      0% { transform: translateX(0); }
-      50% { transform: translateX(15px); }
-      100% { transform: translateX(-10px); }
-    }
-
-    /* Assign different drift animations */
-    .emoji1 { animation: floatUp 12s linear infinite, drift1 6s ease-in-out infinite alternate; }
-    .emoji2 { animation: floatUp 14s linear infinite, drift2 7s ease-in-out infinite alternate; }
-    .emoji3 { animation: floatUp 16s linear infinite, drift3 8s ease-in-out infinite alternate; }
-    .emoji4 { animation: floatUp 18s linear infinite, drift4 9s ease-in-out infinite alternate; }
-    .emoji5 { animation: floatUp 20s linear infinite, drift5 10s ease-in-out infinite alternate; }
+    /* Randomize each emoji’s timing */
+    .emoji1 { left: 10%; animation-duration: 7s; }
+    .emoji1 span { animation-delay: 0s; }
+    .emoji2 { left: 30%; animation-duration: 9s; }
+    .emoji2 span { animation-delay: 2s; }
+    .emoji3 { left: 50%; animation-duration: 11s; }
+    .emoji3 span { animation-delay: 4s; }
+    .emoji4 { left: 70%; animation-duration: 13s; }
+    .emoji4 span { animation-delay: 6s; }
+    .emoji5 { left: 85%; animation-duration: 15s; }
+    .emoji5 span { animation-delay: 8s; }
   </style>
 </head>
 <body>
   <h1>And right now, you can save 50 pounds per person!! 💸💃</h1>
-  <h2>That’s 200 pounds for a family of four!!! 🏖️🍹✈️</h2>
+  <h2>That's 200 pounds off for a family of four!!! 🏖️🍹✈️</h2>
 
-  <!-- Floating emojis with random drift -->
-  <div class="emoji emoji1" style="left:10%;">✈️</div>
-  <div class="emoji emoji2" style="left:30%;">🍹</div>
-  <div class="emoji emoji3" style="left:50%;">💸</div>
-  <div class="emoji emoji4" style="left:70%;">🌴</div>
-  <div class="emoji emoji5" style="left:85%;">😎</div>
+  <!-- Floating emojis -->
+  <div class="emoji emoji1"><span>✈️</span></div>
+  <div class="emoji emoji2"><span>🍹</span></div>
+  <div class="emoji emoji3"><span>💸</span></div>
+  <div class="emoji emoji4"><span>🌴</span></div>
+  <div class="emoji emoji5"><span>😎</span></div>
 </body>
 </html>

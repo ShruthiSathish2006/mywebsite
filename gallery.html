@@ -64,13 +64,19 @@
       100% { background: linear-gradient(135deg, #00ffff, #ff0000, #00ff00); }
     }
 
-    /* Floating emojis */
+    /* Emoji wrapper drifts sideways */
     .emoji {
       position: absolute;
       bottom: -60px;
       opacity: 0.6;
+      animation: driftSide 6s ease-in-out infinite alternate;
+    }
+
+    /* Inner span floats upward */
+    .emoji span {
+      display: inline-block;
       font-size: 2.5em;
-      animation: floatUp linear infinite, driftSide ease-in-out infinite alternate;
+      animation: floatUp 14s linear infinite;
     }
 
     @keyframes floatUp {
@@ -88,11 +94,16 @@
     }
 
     /* Randomize each emoji’s timing */
-    .emoji1 { left: 10%; animation-duration: 14s, 7s; animation-delay: 0s, 0s; }
-    .emoji2 { left: 30%; animation-duration: 16s, 8s; animation-delay: 2s, 1s; }
-    .emoji3 { left: 50%; animation-duration: 18s, 9s; animation-delay: 4s, 2s; }
-    .emoji4 { left: 70%; animation-duration: 20s, 10s; animation-delay: 6s, 3s; }
-    .emoji5 { left: 85%; animation-duration: 22s, 11s; animation-delay: 8s, 4s; }
+    .emoji1 { left: 10%; animation-duration: 7s; }
+    .emoji1 span { animation-delay: 0s; }
+    .emoji2 { left: 30%; animation-duration: 9s; }
+    .emoji2 span { animation-delay: 2s; }
+    .emoji3 { left: 50%; animation-duration: 11s; }
+    .emoji3 span { animation-delay: 4s; }
+    .emoji4 { left: 70%; animation-duration: 13s; }
+    .emoji4 span { animation-delay: 6s; }
+    .emoji5 { left: 85%; animation-duration: 15s; }
+    .emoji5 span { animation-delay: 8s; }
   </style>
 </head>
 <body>
@@ -109,10 +120,11 @@
   </nav>
 
   <!-- Floating emojis -->
-  <div class="emoji emoji1">✈️</div>
-  <div class="emoji emoji2">🍹</div>
-  <div class="emoji emoji3">💸</div>
-  <div class="emoji emoji4">🌴</div>
-  <div class="emoji emoji5">😎</div>
+  <div class="emoji emoji1"><span>✈️</span></div>
+  <div class="emoji emoji2"><span>🍹</span></div>
+  <div class="emoji emoji3"><span>💸</span></div>
+  <div class="emoji emoji4"><span>🌴</span></div>
+  <div class="emoji emoji5"><span>😎</span></div>
 </body>
 </html>
+
